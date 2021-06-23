@@ -24,8 +24,8 @@ dependencies {
 	testImplementation("org.zeroturnaround:zt-zip:1.13")
 
 	if (project.getParent() == null) {
-		api("com.sandpolis:core.instance:0.2.0")
-		api("com.sandpolis:core.net:0.2.0")
+		api("com.sandpolis:core.instance:+")
+		api("com.sandpolis:core.net:+")
 	} else {
 		api(project(":module:com.sandpolis.core.instance"))
 		api(project(":module:com.sandpolis.core.net"))
