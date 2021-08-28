@@ -7,7 +7,7 @@
 //  as published by the Mozilla Foundation.                                   //
 //                                                                            //
 //============================================================================//
-package com.sandpolis.plugin.filesystem.agent.vanilla.exe;
+package com.sandpolis.plugin.filesystem.agent.kilo.exe;
 
 import java.nio.file.Paths;
 

@@ -10,4 +10,4 @@
 
 rootProject.name = "com.sandpolis.plugin.filesystem"
 
-include("agent:vanilla")
+include("agent:kilo")

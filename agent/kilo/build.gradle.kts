@@ -24,7 +24,7 @@ dependencies {
 
 eclipse {
 	project {
-		name = "com.sandpolis.plugin.filesystem:agent:vanilla"
-		comment = "com.sandpolis.plugin.filesystem:agent:vanilla"
+		name = "com.sandpolis.plugin.filesystem:agent:kilo"
+		comment = "com.sandpolis.plugin.filesystem:agent:kilo"
 	}
 }

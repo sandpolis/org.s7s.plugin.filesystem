@@ -7,18 +7,16 @@
 //  as published by the Mozilla Foundation.                                   //
 //                                                                            //
 //============================================================================//
-package com.sandpolis.plugin.filesystem.agent.vanilla;
+module com.sandpolis.plugin.filesystem.agent.kilo {
+	exports com.sandpolis.plugin.filesystem.agent.kilo.exe;
+	exports com.sandpolis.plugin.filesystem.agent.kilo;
 
-import com.sandpolis.core.instance.plugin.SandpolisPlugin;
-import com.sandpolis.core.net.exelet.Exelet;
-import com.sandpolis.core.net.plugin.ExeletProvider;
-import com.sandpolis.plugin.filesystem.agent.vanilla.exe.FilesystemExe;
+	requires com.google.common;
+	requires com.google.protobuf;
+	requires com.sandpolis.core.foundation;
+	requires com.sandpolis.core.instance;
+	requires com.sandpolis.core.net;
+	requires com.sandpolis.plugin.filesystem;
 
-public final class FilesystemPlugin extends SandpolisPlugin implements ExeletProvider {
-
-	@Override
-	@SuppressWarnings("unchecked")
-	public Class<? extends Exelet>[] getExelets() {
-		return new Class[] { FilesystemExe.class };
-	}
+	provides com.sandpolis.core.instance.plugin.SandpolisPlugin with com.sandpolis.plugin.filesystem.agent.kilo.FilesystemPlugin;
 }
