@@ -18,6 +18,8 @@ module com.sandpolis.plugin.filesystem {
 	requires com.sandpolis.core.foundation;
 	requires com.sandpolis.core.instance;
 	requires com.sandpolis.core.net;
+	requires com.sandpolis.core.foreign;
 	requires java.desktop;
 	requires org.slf4j;
+	requires jdk.incubator.foreign;
 }
