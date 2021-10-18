@@ -39,7 +39,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.sandpolis.core.foundation.util.IDUtil;
+import com.sandpolis.core.foundation.S7SRandom;
 import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.EV_FileListing;
 import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.FileListlet;
 import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.FileListlet.UpdateType;
@@ -197,7 +197,7 @@ public class FsHandle implements Closeable {
 		}
 
 		movePath(startPath);
-		id = IDUtil.fm();
+		id = S7SRandom.nextNonzeroInt();
 	}
 
 	/**

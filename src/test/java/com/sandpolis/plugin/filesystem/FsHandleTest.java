@@ -29,8 +29,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import com.sandpolis.core.foundation.S7SSystem;
 import com.sandpolis.core.foundation.Platform.OsType;
-import com.sandpolis.core.foundation.util.SystemUtil;
 import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.FileListlet;
 import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.FileListlet.UpdateType;
 
@@ -105,7 +105,7 @@ class FsHandleTest {
 	@Test
 	@DisplayName("Check that the add event listener is notified")
 	void add_callback_1(@TempDir Path temp) throws IOException, InterruptedException {
-		assumeFalse(SystemUtil.OS_TYPE == OsType.DARWIN);
+		assumeFalse(S7SSystem.OS_TYPE == OsType.DARWIN);
 
 		BlockingQueue<FileListlet> eventQueue = new ArrayBlockingQueue<>(5);
 		Files.createFile(temp.resolve("test.txt"));
@@ -129,7 +129,7 @@ class FsHandleTest {
 	@Test
 	@DisplayName("Check that the delete event listener is notified")
 	void delete_callback_1(@TempDir Path temp) throws IOException, InterruptedException {
-		assumeFalse(SystemUtil.OS_TYPE == OsType.DARWIN);
+		assumeFalse(S7SSystem.OS_TYPE == OsType.DARWIN);
 
 		BlockingQueue<FileListlet> eventQueue = new ArrayBlockingQueue<>(5);
 		Files.createFile(temp.resolve("test.txt"));
@@ -153,7 +153,7 @@ class FsHandleTest {
 	@Test
 	@DisplayName("Check that the modify event listener is notified")
 	void modify_callback_1(@TempDir Path temp) throws IOException, InterruptedException {
-		assumeFalse(SystemUtil.OS_TYPE == OsType.DARWIN);
+		assumeFalse(S7SSystem.OS_TYPE == OsType.DARWIN);
 
 		BlockingQueue<FileListlet> eventQueue = new ArrayBlockingQueue<>(5);
 		Files.write(temp.resolve("test.txt"), "1234".getBytes());
