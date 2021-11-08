@@ -9,9 +9,9 @@
 //============================================================================//
 syntax = "proto3";
 
-package plugin.filesystem.msg;
+package plugin.filesystem;
 
-option java_package = "com.sandpolis.plugin.filesystem.msg";
+option java_package = "com.sandpolis.plugin.filesystem";
 
 message FsHandleOptions {
 
