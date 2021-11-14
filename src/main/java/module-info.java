@@ -9,8 +9,6 @@
 //============================================================================//
 module com.sandpolis.plugin.filesystem {
 	exports com.sandpolis.plugin.filesystem.cmd;
-	exports com.sandpolis.plugin.filesystem.msg;
-	exports com.sandpolis.plugin.filesystem.util;
 	exports com.sandpolis.plugin.filesystem;
 
 	requires com.google.common;

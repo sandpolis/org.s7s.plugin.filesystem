@@ -9,23 +9,27 @@
 //============================================================================//
 package com.sandpolis.plugin.filesystem.agent.kilo.exe;
 
+import static com.sandpolis.core.net.stream.StreamStore.StreamStore;
+
 import java.nio.file.Paths;
 
 import com.google.common.io.MoreFiles;
 import com.google.common.io.RecursiveDeleteOption;
-import com.google.protobuf.MessageLiteOrBuilder;
-import com.sandpolis.core.foundation.Result.Outcome;
 import com.sandpolis.core.foundation.S7SSystem;
 import com.sandpolis.core.net.exelet.Exelet;
-import com.sandpolis.plugin.filesystem.FsHandle;
-import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.RQ_FileDelete;
-import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.RQ_FileListing;
-import com.sandpolis.plugin.filesystem.msg.MsgFilesystem.RS_FileListing;
+import com.sandpolis.core.net.exelet.ExeletContext;
+import com.sandpolis.core.net.stream.OutboundStreamAdapter;
+import com.sandpolis.plugin.filesystem.DirectoryStreamSource;
+import com.sandpolis.plugin.filesystem.Messages.RQ_DirectoryStream;
+import com.sandpolis.plugin.filesystem.Messages.RS_DirectoryStream;
+import com.sandpolis.plugin.filesystem.Messages.RQ_DeleteFile;
+import com.sandpolis.plugin.filesystem.Messages.RS_DeleteFile;
 
 public final class FilesystemExe extends Exelet {
 
 	@Handler(auth = true)
-	public static MessageLiteOrBuilder rq_file_listing(RQ_FileListing rq) throws Exception {
+	public static RS_DirectoryStream rq_directory_stream(ExeletContext context, RQ_DirectoryStream rq)
+			throws Exception {
 		String path;
 		switch (S7SSystem.OS_TYPE) {
 		case WINDOWS:
@@ -37,13 +41,20 @@ public final class FilesystemExe extends Exelet {
 			path = rq.getPath();
 		}
 
-		try (FsHandle handle = new FsHandle(path, rq.getOptions())) {
-			return RS_FileListing.newBuilder().addAllListing(handle.list());
-		}
+		var source = new DirectoryStreamSource(rq);
+		var outbound = new OutboundStreamAdapter<EV_DirectoryStream>(rq.getStreamId(), context.connector,
+				context.request.getFrom());
+		StreamStore.add(source, outbound);
+
+		context.defer(() -> {
+			source.start();
+		});
+
+		return RS_DirectoryStream.DIRECTORY_STREAM_OK;
 	}
 
 	@Handler(auth = true)
-	public static MessageLiteOrBuilder rq_file_delete(RQ_FileDelete rq) throws Exception {
+	public static RS_DeleteFile rq_delete_file(RQ_DeleteFile rq) throws Exception {
 		switch (S7SSystem.OS_TYPE) {
 		case WINDOWS:
 			for (var path : rq.getTargetList()) {
@@ -57,7 +68,7 @@ public final class FilesystemExe extends Exelet {
 			}
 		}
 
-		return Outcome.newBuilder().setResult(true);
+		return RS_DeleteFile.DELETE_FILE_OK;
 	}
 
 	private FilesystemExe() {
