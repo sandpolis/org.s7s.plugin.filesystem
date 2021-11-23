@@ -22,6 +22,7 @@ import com.sandpolis.core.net.stream.OutboundStreamAdapter;
 import com.sandpolis.plugin.filesystem.DirectoryStreamSource;
 import com.sandpolis.plugin.filesystem.Messages.RQ_DirectoryStream;
 import com.sandpolis.plugin.filesystem.Messages.RS_DirectoryStream;
+import com.sandpolis.plugin.filesystem.Messages.EV_DirectoryStream;
 import com.sandpolis.plugin.filesystem.Messages.RQ_DeleteFile;
 import com.sandpolis.plugin.filesystem.Messages.RS_DeleteFile;
 
