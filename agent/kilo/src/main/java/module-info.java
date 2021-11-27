@@ -19,5 +19,6 @@ module com.sandpolis.plugin.filesystem.agent.kilo {
 	requires com.sandpolis.plugin.filesystem;
 	requires org.slf4j;
 
-	provides com.sandpolis.core.instance.plugin.SandpolisPlugin with com.sandpolis.plugin.filesystem.agent.kilo.FilesystemPlugin;
+	provides com.sandpolis.core.instance.plugin.SandpolisPlugin
+			with com.sandpolis.plugin.filesystem.agent.kilo.FilesystemPlugin;
 }
