@@ -9,7 +9,7 @@
 //============================================================================//
 package com.sandpolis.plugin.filesystem.cmd;
 
-import com.sandpolis.core.net.cmdlet.Cmdlet;
+import com.sandpolis.core.instance.cmdlet.Cmdlet;
 
 /**
  * Contains filesystem commands.

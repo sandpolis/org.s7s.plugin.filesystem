@@ -10,8 +10,8 @@
 package com.sandpolis.plugin.filesystem.agent.kilo;
 
 import com.sandpolis.core.instance.plugin.SandpolisPlugin;
-import com.sandpolis.core.net.exelet.Exelet;
-import com.sandpolis.core.net.plugin.ExeletProvider;
+import com.sandpolis.core.instance.exelet.Exelet;
+import com.sandpolis.core.instance.plugin.ExeletProvider;
 import com.sandpolis.plugin.filesystem.agent.kilo.exe.FilesystemExe;
 
 public final class FilesystemPlugin extends SandpolisPlugin implements ExeletProvider {

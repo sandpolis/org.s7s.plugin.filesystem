@@ -9,16 +9,16 @@
 //============================================================================//
 package com.sandpolis.plugin.filesystem.agent.kilo.exe;
 
-import static com.sandpolis.core.net.stream.StreamStore.StreamStore;
+import static com.sandpolis.core.instance.stream.StreamStore.StreamStore;
 
 import java.nio.file.Paths;
 
 import com.google.common.io.MoreFiles;
 import com.google.common.io.RecursiveDeleteOption;
 import com.sandpolis.core.foundation.S7SSystem;
-import com.sandpolis.core.net.exelet.Exelet;
-import com.sandpolis.core.net.exelet.ExeletContext;
-import com.sandpolis.core.net.stream.OutboundStreamAdapter;
+import com.sandpolis.core.instance.exelet.Exelet;
+import com.sandpolis.core.instance.exelet.ExeletContext;
+import com.sandpolis.core.instance.stream.OutboundStreamAdapter;
 import com.sandpolis.plugin.filesystem.DirectoryStreamSource;
 import com.sandpolis.plugin.filesystem.Messages.RQ_DirectoryStream;
 import com.sandpolis.plugin.filesystem.Messages.RS_DirectoryStream;

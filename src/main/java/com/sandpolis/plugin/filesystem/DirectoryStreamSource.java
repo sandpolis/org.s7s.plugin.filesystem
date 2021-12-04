@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import com.sandpolis.core.net.stream.StreamSource;
+import com.sandpolis.core.instance.stream.StreamSource;
 import com.sandpolis.plugin.filesystem.Messages.EV_DirectoryStream;
 import com.sandpolis.plugin.filesystem.Messages.EV_DirectoryStream.DirectoryEntry;
 import com.sandpolis.plugin.filesystem.Messages.EV_DirectoryStream.DirectoryEntry.Type;
