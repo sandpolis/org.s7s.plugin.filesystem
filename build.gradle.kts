@@ -24,10 +24,10 @@ dependencies {
 
 	if (project.getParent() == null) {
 		api("com.sandpolis:core.instance:+")
-		api("com.sandpolis:core.foreign:+")
+		api("com.sandpolis.core.integration.fuse:+")
 	} else {
-		api(project(":module:com.sandpolis.core.instance"))
-		api(project(":module:com.sandpolis.core.foreign"))
+		api(project(":core:com.sandpolis.core.instance"))
+		api(project(":core:integration:com.sandpolis.core.integration.fuse"))
 	}
 }
 

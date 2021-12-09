@@ -9,7 +9,7 @@
 //============================================================================//
 package com.sandpolis.plugin.filesystem.mount;
 
-import static com.sandpolis.core.foreign.linux.fuse.fuse_lowlevel_h.fuse_session_new;
+import static com.sandpolis.core.integration.fuse.fuse_lowlevel_h.fuse_session_new;
 import static jdk.incubator.foreign.CLinker.C_LONG;
 import static jdk.incubator.foreign.CLinker.C_POINTER;
 
@@ -17,7 +17,7 @@ import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
-import com.sandpolis.core.foreign.linux.fuse.fuse_lowlevel_ops;
+import com.sandpolis.core.integration.fuse.fuse_lowlevel_ops;
 
 import jdk.incubator.foreign.CLinker;
 import jdk.incubator.foreign.FunctionDescriptor;
