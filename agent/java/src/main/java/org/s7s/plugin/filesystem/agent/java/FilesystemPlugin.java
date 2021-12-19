@@ -6,18 +6,18 @@
 //  version 2. You may not use this file except in compliance with the MPLv2. //
 //                                                                            //
 //============================================================================//
+package org.s7s.plugin.filesystem.agent.java;
 
-rootProject.name = "org.s7s.plugin.filesystem"
+import org.s7s.core.instance.plugin.SandpolisPlugin;
+import org.s7s.core.instance.exelet.Exelet;
+import org.s7s.core.instance.plugin.ExeletProvider;
+import org.s7s.plugin.filesystem.agent.java.exe.FilesystemExe;
 
-include("agent:java")
+public final class FilesystemPlugin extends SandpolisPlugin implements ExeletProvider {
 
-buildscript {
-	repositories {
-		maven {
-			url = uri("https://plugins.gradle.org/m2/")
-		}
-	}
-	dependencies {
-		classpath("org.s7s:org.s7s.build:+")
+	@Override
+	@SuppressWarnings("unchecked")
+	public Class<? extends Exelet>[] getExelets() {
+		return new Class[] { FilesystemExe.class };
 	}
 }

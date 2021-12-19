@@ -7,17 +7,21 @@
 //                                                                            //
 //============================================================================//
 
-rootProject.name = "org.s7s.plugin.filesystem"
+plugins {
+	id("java-library")
+	id("org.s7s.build.module")
+}
 
-include("agent:java")
+dependencies {
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.+")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.+")
 
-buildscript {
-	repositories {
-		maven {
-			url = uri("https://plugins.gradle.org/m2/")
-		}
-	}
-	dependencies {
-		classpath("org.s7s:org.s7s.build:+")
+	compileOnly(project.getParent()?.getParent()!!)
+}
+
+eclipse {
+	project {
+		name = "org.s7s.plugin.filesystem:agent:java"
+		comment = "org.s7s.plugin.filesystem:agent:java"
 	}
 }
