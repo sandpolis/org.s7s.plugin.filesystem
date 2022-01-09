@@ -22,11 +22,11 @@ dependencies {
 	testImplementation("org.zeroturnaround:zt-zip:1.13")
 
 	if (project.getParent() == null) {
-		api("org.s7s:core.instance:+")
-		api("org.s7s.core.integration.fuse:+")
+		compileOnly("org.s7s:core.instance:+")
+		implementation("org.s7s.core.ext.fuse:+")
 	} else {
-		api(project(":core:org.s7s.core.instance"))
-		api(project(":core:integration:org.s7s.core.integration.fuse"))
+		compileOnly(project(":core:instance"))
+		implementation(project(":core:ext:fuse"))
 	}
 }
 
