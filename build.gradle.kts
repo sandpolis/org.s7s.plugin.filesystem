@@ -19,7 +19,7 @@ plugins {
 dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter-api:5.+")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.+")
-	testImplementation("org.zeroturnaround:zt-zip:1.13")
+	testImplementation("org.zeroturnaround:zt-zip:1.15")
 
 	if (project.getParent() == null) {
 		compileOnly("org.s7s:core.instance:+")
